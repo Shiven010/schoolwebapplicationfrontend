@@ -24,7 +24,9 @@ function App() {
             <Route exact path="/student" element={<StudentReg />} />
             <Route exact path="/studentprofileupdate" element={<UpdateStudent/>} />
             <Route exact path="/teacher" element={<TeacherReg />} />
-            <Route exact path="/studenthome" element={<StudentLandingPage/>} />
+            {localStorage.getItem('token')?
+            <Route exact path="/studenthome" element={<StudentLandingPage/>} />:
+            <Route exact path="/" element={<Home />} />}
             <Route exact path="/leave" element={<Leave/>} />
             <Route exact path="/pay" element={<Pay/>} />
             <Route exact path="/message" element={<Message/>} />
